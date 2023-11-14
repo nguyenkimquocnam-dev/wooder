@@ -1,0 +1,50 @@
+.nav {
+    @include full-screen(true);
+    z-index: 99;
+    @include mid(true);
+    background-color: var(--black-color);
+    @include transition(var(--transition-duration));
+    @include visible(0);
+    // overflow: hidden;
+
+    &__inner {
+        width: 100%;
+        .btn {
+            height: 36px;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+    }
+
+    &__mobile {
+        @include mid(true);
+        flex-direction: column;
+
+        li {
+            a {
+                display: block;
+                padding: 10px 20px;
+                @include text(
+                    var(--white-color),
+                    var(--font-bold),
+                    var(--fs-nav),
+                    var(--lh-nav),
+                    var(--ls-nav),
+                    uppercase               
+                );
+                @include transition(var(--transition-duration));
+
+                &.--active,
+                &:hover {
+                    color: var(--primary-color);
+                }
+            }
+        }
+    }
+
+
+    &.--active {
+        @include visible(1);
+        // visibility: visible;
+    }
+}

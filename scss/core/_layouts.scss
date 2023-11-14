@@ -1,0 +1,62 @@
+html {
+    font-size: var(--fs-default);
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+    background-color: var(--white-color);
+    
+    @include text(var(--gray-color), var(--font-regular), var(--fs-body), var(--lh-body), var(--ls-body), none);
+
+    &.--disable-scroll {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .container-fluid {
+        position: relative;
+        width: 100%;
+        max-width: var(--max-width-container-fluid);
+        padding-left: var(--gap);
+        padding-right: var(--gap);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container {
+        position: relative;
+        max-width: var(--max-width-container);
+        padding-left: var(--gap);
+        padding-right: var(--gap);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main {
+        section {
+            &.--pd-section {
+                padding: var(--pd-section) 0;
+            }
+
+            &.--pt-section {
+                padding-top: var(--pd-section);
+            }
+
+            &.--pb-section {
+                padding-bottom: var(--pd-section);
+            }
+        }
+    }
+
+    // Responsive
+    @include xs {
+        .container-fluid,
+        .container {
+            padding-left: calc(var(--gap) + 5px);
+            padding-right: calc(var(--gap) + 5px);
+        }
+    }
+}

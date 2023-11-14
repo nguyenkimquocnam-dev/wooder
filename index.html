@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wooder</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="">
+
+    <!-- Meta tags -->
+    <meta name="title" content="Wooder">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Nguyễn Kim Quốc Nam">
+
+    <!-- Meta tags Facebook -->
+    <meta property="og:locale" content="vi">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="Wooder">
+    <meta property="og:image" content="">
+
+    <!-- Meta tags Twitter -->
+    <meta name="twitter:card" content="" /> 
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:title" content="Wooder" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+
+    <style>
+        /* CSS Loading */
+        .loading {
+            position: fixed;
+            z-index: 900;
+            width: 100%;
+            height: 100%;
+            background-color: var(--black-color);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading.--hide {
+            opacity: 0;
+            visibility: hidden; 
+            transition: var(--transition-duration);
+            -webkit-transition: var(--transition-duration);
+            -moz-transition: var(--transition-duration);
+            -o-transition: var(--transition-duration);
+            -ms-transition: var(--transition-duration);
+        }
+
+        .loading .loading__inner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading .loading__inner .loading__inner-progress {
+            position: relative;
+            width: var(--width-progress-loading);
+            height: var(--height-progress-loading);
+            background-color: var(--white-color);
+        }
+
+        .loading .loading__inner .loading__inner-progress .bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .loading .loading__inner .loading__inner-percent {
+            margin-top: 14px;
+            color: var(--white-color);
+            font-family: pb;
+            font-size: var(--fs-btn);
+            line-height: var(--lh-btn);
+            letter-spacing: var(--ls-btn);
+            text-align: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="dest/style.min.css">
+    <link rel="stylesheet" href="dest/fonts.css">
+</head>
+
+<body class="homepage --disable-scroll --custom-scroll">
+    <!-- Loading -->
+    <div class="loading">
+        <div class="loading__inner">
+            <div class="loading__inner-progress">
+                <div class="bar"></div>
+            </div>
+            <p class="loading__inner-percent">0%</p>
+        </div>
+    </div>
+
+    <!-- Progress Bar Scroll -->
+    <div class="progressbar"></div>
+
+    <!-- Mouse Circle -->
+    <div class="mouse-circle"></div>
+
+    <header class="header">
+        <div class="container-fluid">
+            <a href="./" class="header__logo --hover">
+                <img src="img/logo-wooder.svg" alt="logo-wooder">
+                <h1 class="--hidden">Wooder</h1>
+            </a>
+
+            <ul class="header__menu">
+                <li><a href="#home" class="--active --hover" >home</a></li>
+                <li><a href="#products" class="--hover">products</a></li>
+                <li><a href="#features" class="--hover">features</a></li>
+                <li><a href="#design" class="--hover">design</a></li>
+                <li><a href="#about" class="--hover">about</a></li>
+                <li><a href="#gallery" class="--hover">gallery</a></li>
+                <li><a href="#news" class="--hover">news</a></li>
+            </ul>
+
+            <div class="header__right">
+                <!-- Select Language -->
+                <div class="header__right-language --hover">
+                    <div class="select">
+                        <span class="select__current">en</span>
+                        <img class="select__icon" src="img/icon-arrow-down-triangle.svg" alt="select-icon" >
+                    </div>
+                    <ul class="option --hidden">
+                        <li>VI</li>
+                        <li>JP</li>
+                        <li>AU</li>
+                    </ul>
+                </div>
+
+                <!-- Menu Mobile Button -->
+                <div class="header__right-humburger --hidden">
+                    <span class="bar"></span>
+                </div>
+
+                <!-- Sign up -->
+                <div class="btn --cta --hover">
+                    Sign Up
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar Mobile -->
+    <nav class="nav">
+        <div class="nav__inner">
+            <ul class="nav__mobile">
+                <li><a href="#home" class="--active --hover">home</a></li>
+                <li><a href="#products" class="--hover">products</a></li>
+                <li><a href="#features" class="--hover">features</a></li>
+                <li><a href="#design" class="--hover">design</a></li>
+                <li><a href="#about" class="--hover">about</a></li>
+                <li><a href="#gallery" class="--hover">gallery</a></li>
+                <li><a href="#news" class="--hover">news</a></li>
+            </ul>
+            <a class="btn --cta" href="#">sign up</a>
+        </div>
+    </nav>
+
+    <div data-scroll-container>
+        <main class="main">
+            <!-- Slider Section -->
+            <section class="slider" id="home">
+                <!-- Slider List -->
+                <div class="slider__list">
+        
+                    <!-- Slider Item -->
+                    <div class="slider__list-item">
+                        <!-- Content -->
+                        <div class="content">
+                            <h2 class="heading --h1 --text-primary">Wooder</h2>
+                            <a href="#" class="btn --main --hover">
+                                learn more
+                                <img src="img/icon-arrow-right.svg" alt="icon-arrow-right" class="btn__icon">
+                            </a>
+                        </div>
+        
+                        <!-- Image -->
+                        <picture class="picture">
+                            <source media="(max-width: 767.98px)" srcset="img/slider-1-mobile.jpg">
+                            <source media="(max-width: 991.98px)" srcset="img/slider-1-tablet.jpg">
+                            <img src="img/slider-1.jpg" alt="img-slider">
+                        </picture>
+                    </div>
+        
+                    <!-- Slider Item -->
+                    <div class="slider__list-item">
+                        <!-- Content -->
+                        <div class="content">
+                            <h2 class="heading --h1 --text-primary">Furniture</h2>
+                            <a href="#" class="btn --main --hover">
+                                learn more
+                                <img src="img/icon-arrow-right.svg" alt="icon-arrow-right" class="btn__icon">
+                            </a>
+                        </div>
+        
+                        <!-- Image -->
+                        <picture class="picture">
+                            <source media="(max-width: 767.98px)" src="img/slider-2-mobile.jpg">
+                            <source media="(max-width: 991.98px)" src="img/slider-2-tablet.jpg">
+                            <img src="img/slider-2.jpg" alt="img-slider">
+                        </picture>
+                    </div>
+        
+                    <!-- Slider Item -->
+                    <div class="slider__list-item">
+                        <!-- Content -->
+                        <div class="content">
+                            <h2 class="heading --h1 --text-primary">Decor</h2>
+                            <a href="#" class="btn --main --hover">
+                                learn more
+                                <img src="img/icon-arrow-right.svg" alt="icon-arrow-right" class="btn__icon">
+                            </a>
+                        </div>
+        
+                        <!-- Image -->
+                        <picture class="picture">
+                            <source media="(max-width: 767.98px)" src="img/slider-3-mobile.jpg">
+                            <source media="(max-width: 991.98px)" src="img/slider-3-tablet.jpg">
+                            <img src="img/slider-3.jpg" alt="img-slider">
+                        </picture>
+                    </div>
+                </div>
+        
+                <!-- Slider Bottom -->
+                <div class="slider__bottom">
+                    <div class="container-fluid">
+                        <!-- Paging -->
+                        <div class="slider__bottom-paging">
+                            <p class="number">
+                                <span class="number__current">01</span>/<span class="number__total">03</span>
+                            </p>
+        
+                            <!-- Dots -->
+                            <div class="dotted">
+                                <ol>
+                                    <li class="--active --hover"></li>
+                                    <li class="--hover"></li>
+                                    <li class="--hover"></li>
+                                </ol>
+                            </div>
+                        </div>
+        
+                        <!-- Scroll -->
+                        <div class="slider__bottom-scroll">
+                            <img src="img/icon-mouse.svg" alt="icon-mouse">
+                            <img src="img/icon-arrow-down.svg" alt="icon-arrow-down">
+                        </div>
+        
+                        <!-- Controls -->
+                        <div class="slider__bottom-controls">
+                            <div class="btn --ctrl --prev --hover">
+                                <img src="img/icon-arrow-left.svg" alt="icon-arrow-left" class="btn__icon">
+                            </div>
+                            <div class="btn --ctrl --next --hover">
+                                <img src="img/icon-arrow-left.svg" alt="icon-arrow-right" class="btn__icon">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Products Section -->
+            <section class="products --pt-section" id="products">
+                <div class="container">
+                    <div class="blog-item">
+                        <!-- Textbox -->
+                        <div class="textbox">
+                            <h2 class="heading --h2 --line-left">Furniture</h2>
+                            <p class="desc">
+                                Wooder utilizes materials otherwise left behind, rendered useless in their original intent.
+                                By creating new pieces made one rerclaimed barnwood
+                            </p>
+                            <a href="" class="btn --learnmore --underline --hover">
+                                learn more
+                                <img class="btn__icon" src="img/icon-arrow-right-yellow.svg" alt="icon-arrow-right-yellow">
+                            </a>
+                        </div>
+        
+                        <div class="blog-item__thumb">
+                            <img src="img/products-1.jpg" alt="img-product">
+                        </div>
+                    </div>
+                    <div class="blog-item">
+                        <!-- Textbox -->
+                        <div class="textbox --pull-right">
+                            <h2 class="heading --h2 --line-right">decor</h2>
+                            <p class="desc">
+                                We make all types of wooden decor as per design given by Architect,Interior designer, contractor
+                                which is suitable
+                                your premises.
+                            </p>
+                            <a href="" class="btn --learnmore --underline --hover">
+                                learn more
+                                <img class="btn__icon" src="img/icon-arrow-right-yellow.svg" alt="icon-arrow-right-yellow">
+                            </a>
+                        </div>
+        
+                        <div class="blog-item__thumb">
+                            <img src="img/products-2.jpg" alt="img-product">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Videos Section -->
+            <section class="videos --pd-section" id="features">
+                <div class="container">
+                    <div class="textbox --center">
+                        <h2 class="heading --h2 --line-bottom">wooder – is quality</h2>
+                        <p class="desc">
+                            We create unique design objects made of rare wood, specially under the order. Look at the short
+                            video about our work.
+                        </p>
+                    </div>
+        
+                    <div class="videos__list">
+                        <div class="videos__list-item">
+                            <div class="thumb --hover" data-video-src="xVtkkHfrqPs">
+                                <div class="thumb__play">
+                                    <img src="img/icon-play.svg" alt="icon-play" class="thumb__play-icon">
+                                </div>
+                                <img src="img/videos-1.jpg" alt="img-video" class="thumb__img">
+                            </div>
+                            <p class="heading --line-top">Innovative Design</p>
+                        </div>
+                        <div class="videos__list-item">
+                            <div class="thumb --hover" data-video-src="0tFUfuEhh28">
+                                <div class="thumb__play">
+                                    <img src="img/icon-play.svg" alt="icon-play" class="thumb__play-icon">
+                                </div>
+                                <img src="img/videos-2.jpg" alt="img-video" class="thumb__img">
+                            </div>
+                            <p class="heading --line-top">High-level Skills</p>
+                        </div>
+                        <div class="videos__list-item">
+                            <div class="thumb --hover" data-video-src="2YllmPaKhkY">
+                                <div class="thumb__play">
+                                    <img src="img/icon-play.svg" alt="icon-play" class="thumb__play-icon">
+                                </div>
+                                <img src="img/videos-3.jpg" alt="img-video" class="thumb__img">
+                            </div>
+                            <p class="heading --line-top">Quality Products</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Banner Section -->
+            <section class="banner --overlay" id="design" style="background-image: url(img/banner-bg.jpg);">
+                <div class="container">
+                    <div class="textbox">
+                        <h2 class="heading --h2 --text-primary">we Do the design of any complexity</h2>
+                        <p class="desc --text-white">
+                            Wooder utilizes materials otherwise left behind, rendered useless in their original intent.
+                            By creating new pieces made
+                            o.rerclaimed barnwood
+                        </p>
+                        <div class="btn --main --hover" data-video-src="VkUx9npkx54">
+                            <img src="img/icon-play-circle.svg" alt="icon-play-circle" class="btn__icon">
+                            Watch Video
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- About Section -->
+            <section class="about --pd-section" id="about">
+                <div class="container">
+                    <div class="blog-item">
+                        <div class="blog-item__thumb">
+                            <img src="img/about-img.jpg" alt="img-about">
+                        </div>
+        
+                        <!-- Textbox -->
+                        <div class="textbox">
+                            <h2 class="heading --h2 --line-left">about us</h2>
+                            <p class="desc">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                sed do eiusmod tempor incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                            <a href="" class="btn --learnmore --underline --hover">
+                                learn more
+                                <img class="btn__icon" src="img/icon-arrow-right-yellow.svg" alt="icon-arrow-right-yellow">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Gallery Section -->
+            <section class="gallery --bg-black --pd-section" id="gallery">
+                <div class="container">
+                    <!-- Textbox -->
+                    <div class="textbox">
+                        <h2 class="heading --h2 --text-white">gallery</h2>
+                        <p class="desc --text-white">
+                            We are a team of professionals in the wood processing and
+                            the creation of wooden furniture of the highest class
+                        </p>
+                    </div>
+        
+                    <div class="gallery__list">
+                        <figure class="gallery__list-item">
+                            <a href="img/gallery-1-large.jpg" data-fancybox="images" class="thumb --hover">
+                                <img src="img/gallery-1.jpg" alt="img-gallery" class="thumb__img">
+                            </a>
+                        </figure>
+                        <figure class="gallery__list-item">
+                            <a href="img/gallery-2-large.jpg" data-fancybox="images" class="thumb --hover">
+                                <img src="img/gallery-2.jpg" alt="img-gallery" class="thumb__img">
+                            </a>
+                        </figure>
+                        <figure class="gallery__list-item">
+                            <a href="img/gallery-3-large.jpg" data-fancybox="images" class="thumb --hover">
+                                <img src="img/gallery-3.jpg" alt="img-gallery" class="thumb__img">
+                            </a>
+                        </figure>
+                        <figure class="gallery__list-item">
+                            <a href="img/gallery-4-large.jpg" data-fancybox="images" class="thumb --hover">
+                                <img src="img/gallery-4.jpg" alt="img-gallery" class="thumb__img">
+                            </a>
+                        </figure>
+                        <figure class="gallery__list-item">
+                            <a href="img/gallery-4-large.jpg" data-fancybox="images" class="thumb --hover">
+                                <img src="img/gallery-5.jpg" alt="img-gallery" class="thumb__img">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- News Section -->
+            <section class="news --pd-section" id="news">
+                <div class="container">
+                    <!-- Textbox -->
+                    <div class="textbox">
+                        <h2 class="heading --h2">news</h2>
+                        <p class="desc">
+                            We are a team of professionals in the wood processing and
+                            the creation of wooden furniture of the highest class
+                        </p>
+                    </div>
+        
+                    <ul class="news__tabs">
+                        <li class="--active --hover" data-tab="1">All</li>
+                        <li class="--hover" data-tab="2">technology</li>
+                        <li class="--hover" data-tab="3">fashion</li>
+                    </ul>
+        
+                    <!-- News List -->
+                    <div class="news__wrap">
+                        <div class="news__wrap-list --active">
+                            <figure class="item">
+                                <a href="#" class="item__thumb --hover">
+                                    <img src="img/news-1.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left --hover">
+                                        <a href="#">Where does it come from?</a>
+                                    </h3>
+        
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur roots
+                                        in a piece of
+                                    </p>
+                                </div>
+                            </figure>
+                            <figure class="item">
+                                <a href="#" class="item__thumb --hover">
+                                    <img src="img/news-2.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left --hover">
+                                        <a href="#">There are many variations of passages</a>
+                                    </h3>
+        
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur Lorem Ipsum
+                                        is not
+                                    </p>
+                                </div>
+                            </figure>
+                            <figure class="item">
+                                <a href="#" class="item__thumb --hover">
+                                    <img src="img/news-3.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left --hover">
+                                        <a href="#">It is a long established fact that a reader It has roots in a piece
+                                            of...</a>
+                                    </h3>
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur Lorem Ipsum
+                                        is not
+                                    </p>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="news__wrap-list">
+                            <figure class="item">
+                                <a href="#" class="item__thumb">
+                                    <img src="img/news-4.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left">
+                                        <a href="#">Where does it come from?</a>
+                                    </h3>
+        
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur roots
+                                        in a piece of
+                                    </p>
+                                </div>
+                            </figure>
+                            <figure class="item">
+                                <a href="#" class="item__thumb">
+                                    <img src="img/news-5.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left">
+                                        <a href="#">There are many variations of passages</a>
+                                    </h3>
+        
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur Lorem Ipsum
+                                        is not
+                                    </p>
+                                </div>
+                            </figure>
+                            <figure class="item">
+                                <a href="#" class="item__thumb">
+                                    <img src="img/news-6.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left">
+                                        <a href="#">It is a long established fact that a reader It has roots in a piece
+                                            of...</a>
+                                    </h3>
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur Lorem Ipsum
+                                        is not
+                                    </p>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="news__wrap-list">
+                            <figure class="item">
+                                <a href="#" class="item__thumb">
+                                    <img src="img/news-7.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left">
+                                        <a href="#">Where does it come from?</a>
+                                    </h3>
+        
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur roots
+                                        in a piece of
+                                    </p>
+                                </div>
+                            </figure>
+                            <figure class="item">
+                                <a href="#" class="item__thumb">
+                                    <img src="img/news-8.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left">
+                                        <a href="#">There are many variations of passages</a>
+                                    </h3>
+        
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur Lorem Ipsum
+                                        is not
+                                    </p>
+                                </div>
+                            </figure>
+                            <figure class="item">
+                                <a href="#" class="item__thumb">
+                                    <img src="img/news-9.jpg" alt="img-news">
+                                </a>
+        
+                                <div class="item__content">
+                                    <h3 class="heading --h3 --line-top-left">
+                                        <a href="#">It is a long established fact that a reader It has roots in a piece
+                                            of...</a>
+                                    </h3>
+                                    <p class="item__content-desc">
+                                        Contrary to popular belief, Lorem Ipsum
+                                        is not simply random text. It has roots
+                                        in a piece of classical Latin literatur Lorem Ipsum
+                                        is not
+                                    </p>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Accordion -->
+            <section class="question --pd-section">
+                <div class="container">
+                    <div class="question__inner">
+                        <div class="textbox --center">
+                            <h2 class="heading --h2 --line-bottom">FAQ</h2>
+                        </div>
+                        <div class="question__list">
+                            <div class="question__list-accordion">
+                                <h3 class="heading --h3">General Information</h3>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>CFD Circle có cam kết đầu ra và việc làm 100% không?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            CFD Circle không quảng cáo bằng cách cam kết đầu ra 100% để thu hút học viên.
+                                            Điều chúng tôi cam kết duy
+                                            nhất là sẽ đồng hành, hỗ trợ cho bạn hết mình nhằm truyền đạt và giúp cho tất cả học
+                                            viên
+                                            có thể làm được việc cùng các kỹ năng thực tếcần có sau khóa học
+                                            và ứng tuyển ít nhất là vị trí fresher tại các công ty.
+                                            <br>
+                                            <br>
+                                            Ngoài sự cố gắng của giảng viên, học viên cũng phải có sức chiến đấu cao,
+                                            ý thức học và hoàn thành các
+                                            yêu cầu đặt ra
+                                            nhằm hoàn thành khóa học thật tốt. Khi đó, chắc chắn học viên sẽ hoàn thành khoá học
+                                            tốt và ứng tuyển
+                                            thành công.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Học tại CFD Circle xong có đi làm hay thực tập được không?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Khóa học thực chiến tại CFD Circle giúp học viên trải nghiệm dự án, quy trình làm
+                                            việc và kỹ năng thực tế cần có để
+                                            không chỉ xin thực tập mà còn có thể ứng tuyển các vị trí chính thức cao hơn như ở
+                                            các công ty.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Học viên hoàn thành khoá học có được cấp chứng chỉ không?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Sau khi học viên hoàn thành khoá học sẽ được cấp chứng chỉ hoàn thành khoá học
+                                            có chữ ký của người sáng lập CFD Circle.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Sau mỗi buổi học có quay video để xem lại không?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            CFD Circle sẽ quay lại video buổi học offline để các bạn không tham gia được có thể
+                                            xem lại bằng cách đăng nhập vào
+                                            website CFD, chọn mục Khóa Học Của Tôi, chọn Khóa Đang Học và xem lại video.
+                                            <br>
+                                            <br>
+                                            Bản quyền video thuộc về CFD Circle, nên nếu học viên tìm cách tải video về và chia
+                                            sẻ thì sẽ bị khóa tài khoản vĩnh
+                                            viễn.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Hình thức học ở CFD Circle là gì?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Tại CFD Circle có 2 hình thức học bạn có thể chọn là Offline hoặc
+                                            Online thông qua Google Meet cùng với lớp Offline. Tất cả học viên đều được giảng
+                                            viên và
+                                            mentor hỗ trợ, đánh giá, góp ý dự án, review code nhằm giúp các bạn rút ra nhiều bài
+                                            học kinh nghiệm quý giá, cũng như hoàn thành thật tốt khoá học để đi làm.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Học tại CFD Circle sao cho hiệu quả nhất</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Học viên cần chuẩn bị đủ thời gian để học Offline hoặc Online,
+                                            cũng như thời gian để hoàn thành bài tập, tự học tại nhà.
+                                            <br>
+                                            <br>
+                                            Tự tin vào bản thân, kiên trì, cố gắng và sức chiến đấu cao không lùi bước,
+                                            chủ động hỏi những vấn đề chưa rõ để được giải đáp và hỗ trợ.
+                                            <br>
+                                            <br>
+                                            Hạn chế tối đa việc nghỉ học, nếu có nghỉ thì phải xin và xem lại video được ghi lại
+                                            trong lúc học để hoàn thành bài tập và kiến thức ngày hôm đó.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Muốn đặt câu hỏi với giảng viên thì phải làm sao?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Đối với hình thức học Offline hoặc Online cùng lớp offline thông qua Google Meet
+                                            thì học viên có thể hỏi trực tiếp trong lúc học, cũng như là hỏi trên nhóm chat
+                                            Facebook
+                                            của lớp bạn đang học, giảng viên và mentor sẽ hỗ trợ 24/7.
+                                            <br>
+                                            <br>
+                                            Đối với hình thức học Video Mentor, học viên có thể đặt câu hỏi trong các buổi dạy
+                                            online
+                                            của giảng viên, cũng như là hỏi trên nhóm chat Telegram của lớp bạn đang học, giảng
+                                            viên và
+                                            mentor sẽ hỗ trợ 24/7.
+                                            <br>
+                                            <br>
+                                            Đối với hình thức học Video, học viên có thể đặt câu hỏi thông qua nhóm chat
+                                            Facebook
+                                            hỗ trợ học viên của đội ngũ giảng viên và mentor CFD Circle.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="question__list-accordion">
+                                <h3 class="heading --h3">Register, Payments, Promotions</h3>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Đăng ký khóa học và thanh toán như thế nào?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Bạn đăng ký tài khoản và đăng nhập vào website, chọn khóa học muốn học,
+                                            điền đầy đủ thông tin và bấm đăng ký học. Sau khi đăng ký, hệ thống sẽ gửi email
+                                            thông tin khoá học đã đăng ký, mã đơn hàng, thông tin thanh toán.
+                                            <br>
+                                            <br>
+                                            Bạn có thể thanh toán bằng chuyển khoản ngân hàng, ví điện tử Momo hoặc đóng tiền
+                                            mặt tại
+                                            văn phòng CFD Circle. Hệ thống sẽ gửi email cho bạn để xác nhận thanh toán
+                                            sau khi bạn đăng ký và thanh toán thành công.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Làm sao để được giảm giá khoá học?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Đối với khoá học Offline hoặc Online cùng lớp Offline:
+                                            <br>
+                                            - Giảm giá cho mỗi học viên khi học theo nhóm 2 người trở lên (áp dụng trên từng
+                                            khoá học cụ thể).
+                                            <br>
+                                            <br>
+                                            Đối với khoá học video:
+                                            <br>
+                                            - Chương trình giảm giá tuỳ từng mỗi khoá học khác nhau.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Làm sao để đăng ký làm giảng viên/đối tác hoặc mentor tại CFD
+                                                Circle</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Đối với giảng viên/đối tác:
+                                            Bạn có thể đăng ký trở thành giảng viên/đối tác nội dung cho CFD Circle
+                                            thì vui lòng bấm đăng ký giảng viên.
+                                            <br>
+                                            <br>
+                                            Đối với mentor:
+                                            CFD Circle sẽ thông báo tuyển dụng mentor rộng rãi thông qua website và
+                                            nhóm Cộng đồng CFD Circle để các bạn có thể ứng tuyển.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="content__question --hover">
+                                        <h4>
+                                            <strong>Có được chia học phí để đóng nhiều lần không?</strong>
+                                        </h4>
+                                    </div>
+                                    <div class="content__answer">
+                                        <p>
+                                            Học viên đăng ký học khoá Front-end Master đóng một lần để được hưởng ưu đãi giảm
+                                            giá.
+                                            Ngoài ra, học viên cũng có thể đóng học phí theo 3 đợt tương ứng với giá học phí của
+                                            3 giai đoạn Front-end Newbie, Web Responsive, ReactJs Master
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Carousel Section -->
+            <section class="carousel --pd-section">
+                <div class="carousel__imgs --hover">
+                    <img data-flickity-lazyload="img/carousel-1.jpg" src="img/carousel-1.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-2.jpg" src="img/carousel-2.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-3.jpg" src="img/carousel-3.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-4.jpg" src="img/carousel-4.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-1.jpg" src="img/carousel-1.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-2.jpg" src="img/carousel-2.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-3.jpg" src="img/carousel-3.jpg" alt="img-carousel">
+                    <img data-flickity-lazyload="img/carousel-4.jpg" src="img/carousel-4.jpg" alt="img-carousel">
+                </div>
+                <div class="carousel__progress">
+                    <div class="carousel__progress-inner"></div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer --bg-black">
+            <div class="container">
+                <p class="footer__copyright">© 2023 WOODER, CFD Circle</p>
+                <a href="./" class="footer__logo --hover">
+                    <img src="img/logo-wooder.svg" alt="logo-wooder">
+                </a>
+                
+            </div>
+        </footer>
+    </div>
+
+    <div class="btn --backtotop --hover">
+        <img src="img/icon-arrow-up.svg" alt="icon-backtotop" class="btn__icon">
+    </div>
+
+    <!-- Video Modal -->
+    <div class="popupvideo">
+        <div class="popupvideo__inner">
+            <div class="popupvideo__inner-iframe">
+                <iframe width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="close">
+                    <img src="img/icon-close.svg" alt="icon-close">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Signup Form Popup -->
+    <div class="popupsignup">
+        <div class="container">
+            <div class="popupsignup__inner">
+                <div class="popupsignup__head">
+                    <h2 class="heading --h2">create account</h2>
+                    <div class="socials">
+                        <a href="#" target="_blank" class="btn --social --blue-light --hover">
+                            <img src="img/icon-google.svg" alt="icon-google">google
+                        </a>
+                        <a href="#" target="_blank" class="btn --social --blue-dark --hover">
+                            <img src="img/icon-facebook.svg" alt="icon-facebook">facebook
+                        </a>
+                    </div>
+                </div>
+                <form action="#" method="POST" class="popupsignup__form" id="signup-form">
+                    <div class="popupsignup__form-body">
+                        <div class="title">Or register using</div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Fullname" class="form-input" id="fullname">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Email address" class="form-input" id="email">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Username" class="form-input" id="username">
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" class="form-input" id="password">
+                            <div class="icon">
+                                <img src="img/icon-eye-show.svg" alt="icon-eye-show">
+                                <img src="img/icon-eye-hide.svg" alt="icon-eye-hide" class="--hide">
+                            </div>
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Confirm Password" class="form-input" id="confirm-password">
+                            <div class="icon">
+                                <img src="img/icon-eye-show.svg" alt="icon-eye-show">
+                                <img src="img/icon-eye-hide.svg" alt="icon-eye-hide" class="--hide">
+                            </div>
+                            <span class="form-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox-wrap">
+                                <input type="checkbox" class="form-checkbox" id="policy">
+                                <label for="policy">Send me special offers, information and recommendations</label>
+                            </div>
+                            <span class="form-message"></span>
+                        </div>
+                        <button type="submit" class="btn --cta --large --hover">sign up</button>
+                    </div>
+            
+                </form>
+                <div class="popupsignup__close --hover">
+                    <img src="img/icon-close.svg" alt="icon-close">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="dest/jsmain.min.js"></script>
+    <script src="dest/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+// --------------------------------- Show/Hide --------------------------------------------
+.--hidden {
+    display: none;
+}
+
+// --------------------------------- Background Color -------------------------------------
+.--bg-black {
+    background-color: var(--black-color) !important;
+}
+
+.--custom-scroll {
+    @include custom-scroll(
+        var(--width-scrollbar),
+        var(--bg-track-scrollbar),
+        var(--bg-thumb-scrollbar),
+        var(--border-radius-scrollbar)
+    ); 
+}
+
+// --------------------------------- Heading ----------------------------------------------
+.heading {
+    position: relative;
+    color: var(--black-color);
+    font-family: var(--font-bold);
+    text-transform: uppercase;
+
+    // Heading 1
+    &.--h1 {
+        font-size: var(--fs-h1);
+        line-height: var(--lh-h1);
+        letter-spacing: var(--ls-h1);
+    }
+
+    // Heading 2
+    &.--h2 {
+        font-size: var(--fs-h2);
+        line-height: var(--lh-h2);
+        letter-spacing: var(--ls-h2);
+    }
+
+    // Heading 3
+    &.--h3 {
+        font-size: var(--fs-h3);
+        line-height: var(--lh-h3);
+        letter-spacing: var(--ls-h3);
+    }
+
+    // Heading Colors
+    &.--text {
+        &-primary {
+            color: var(--primary-color);
+        }
+
+        &-white {
+            color: var(--white-color);
+        }
+    }
+
+    // Heading Line
+    &.--line {
+
+        // Left
+        &-left {
+            &::before {
+                @include mid-abs("top");
+                left: -74px;
+                @include line-style(var(--width-line-h2), var(--height-line-h2));
+            }
+        }
+
+        // Right
+        &-right {
+            &::after {
+                @include mid-abs("top");
+                right: -74px;
+                @include line-style(var(--width-line-h2), var(--height-line-h2));
+            }
+        }
+
+        // Top
+        &-top {
+            &::before {
+                @include mid-abs;
+                top: -15px;
+                @include line-style(var(--width-line-video), var(--height-line-video));
+            }
+
+            &-left::before {
+                position: absolute;
+                top: -15px;
+                left: 0;
+                @include line-style(var(--width-line-h3), var(--height-line-h3));
+            }
+        }
+
+        // Bottom
+        &-bottom {
+            &::after {
+                @include mid-abs("left");
+                bottom: -10px;
+                @include line-style(var(--width-line-h2), var(--height-line-h2));
+            }
+        }
+    }
+
+    @include sm {
+        &.--line {
+            &-left::before,
+            &-right::after {
+                display: none;
+            }
+        }
+    }
+
+    @include xs {
+        &.--line {
+            &-bottom::after {
+                bottom: -10px;
+            }
+
+            &-left::before,
+            &-right::after {
+                display: none;
+            }
+        }
+    }
+}
+
+// --------------------------------- Text Box ---------------------------------------------
+.textbox {
+    .heading {
+        margin-bottom: 10px;
+    }
+
+    .desc {
+        &.--text-white {
+            color: var(--white-color);
+        }
+    }
+
+    .btn {
+        margin-top: 26px;
+    }
+
+    &.--pull-right {
+        text-align: right;
+
+        .btn {
+            margin-left: auto;
+        }
+    }
+
+    &.--center {
+        max-width: 584px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    @include xs {
+        & {
+            .heading {
+                margin-bottom: 8px;
+            }
+
+            .btn {
+                margin-top: 18px;
+            }
+        }
+    }
+}
+
+// --------------------------------- Button -----------------------------------------------
+.btn {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    @include text(var(--white-color), var(--font-bold), var(--fs-btn), var(--lh-btn), var(--ls-btn), uppercase);
+    @include transition(var(--transition-duration));
+
+    // Button Main
+    &.--main {
+        @include button-style(fit-content,
+            var(--height-btn-main),
+            34px,
+            var(--border-btn) var(--white-color));
+
+        .btn__icon {
+            margin-left: 8px;
+            @include transition(var(--transition-duration));
+        }
+
+        // Button Main Hover
+        &::before {
+            position: absolute;
+            left: 0;
+            z-index: -1;
+            @include line-style(100%, 100%, var(--primary-color));
+            @include transform(scaleX(0));
+            @include transform-origin(right);
+            @include transition(transform var(--transition-duration));
+        }
+
+        &:hover {
+            &::before {
+                @include transform(scaleX(1));
+                @include transform-origin(left);
+            }
+            
+            .btn__icon {
+                @include transform(translateX(6px));
+            }
+        }
+    }
+
+    // Button CTA
+    &.--cta {
+        @include button-style(fit-content,
+            var(--height-btn-cta),
+            18px,
+            1px solid var(--primary-color));
+        justify-content: center;
+        background-color: var(--primary-color);
+
+        &.--large {
+            height: var(--height-btn-cta-large);
+        }
+
+        // Hover
+        &:hover {
+            background-color: transparent;
+            border-color: var(--white-color);
+        }
+    }
+
+    // Button Control
+    &.--ctrl {
+        @include mid(true);
+        @include button-style(fit-content,
+            var(--height-btn-control),
+            19px,
+            var(--border-btn) var(--white-color));
+
+        // Button Pre
+        &.--next {
+            .btn__icon {
+                @include transform(rotate(-180deg));
+            }
+
+        }
+
+        // Hover
+        &::before {
+            position: absolute;
+            left: 0;
+            z-index: -1;
+            @include line-style(100%, 100%, var(--primary-color));
+            @include transform(scaleX(0));
+            @include transform-origin(right);
+            @include transition(transform var(--transition-duration));
+        }
+
+        &:hover {
+            &::before {
+                @include transform(scaleX(1));
+                @include transform-origin(left);
+            }
+        }
+
+    }
+
+    // Button Learn More
+    &.--learnmore {
+        color: var(--black-color);
+        @include button-style(fit-content,
+            var(--height-btn-learnmore),
+            0,
+            0);
+
+
+        .btn__icon {
+            margin-left: 6px;
+            @include transform(translateX(0));
+            @include transition(var(--transition-duration));
+        }
+
+        // Line
+        &.--underline::after {
+            position: absolute;
+            bottom: -4px;
+            @include line-style(var(--width-line-btn-learnmore),
+                var(--height-line-btn-learnmore));
+        }
+
+        // Hover
+        &:hover {
+            color: var(--primary-color);
+            .btn__icon {
+                @include transform(translateX(6px));
+            }
+        }
+    }
+
+    // Button BackToTop
+    &.--backtotop {
+        position: fixed;
+        right: clamp(var(--gap), calc((100% - var(--max-width-container)) / 2 + var(--gap)), 9999px);
+        // right:  calc((100vw - var(--max-width-container)) / 2 + var(--gap) );
+        bottom: calc(var(--height-footer) / 2);
+        z-index: 50;
+        @include transform(translateY(50%));
+        @include mid(true);
+        @include button-style(
+            var(--height-btn-backtotop),
+            var(--height-btn-backtotop),
+            0px,
+            var(--border-btn) var(--white-color));
+        background-color: var(--gray-color);
+        @include transition(var(--transition-duration));
+        @include visible(0);
+
+        // Hover
+        &:hover {
+            background-color: var(--primary-color);
+        }
+
+        // Display
+        &.--show {
+            @include visible(1);
+        }
+    }
+
+    // Button Socials
+    &.--social {
+        @include button-style(
+            fit-content,
+            var(--height-btn-social),
+            58px,
+            0
+        );
+        justify-content: center;
+
+        img {
+            margin-right: 10px;
+        }
+
+        &.--blue-light {
+            background-color: var(--blue-light-color);
+        }
+
+        &.--blue-dark {
+            background-color: var(--blue-dark-color);
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    // Rsponsive
+    @include xs {
+        // Main Button
+        &.--main {
+            padding: 0 20px;
+
+            .btn__icon {
+                margin-left: 6px;
+                width: 17px;
+            }
+        }
+
+        // Learnmore Button
+        &.--learnmore {
+            .btn__icon {
+                width: 19px;
+                margin-left: 6px;
+            }
+            &.--underline::after {
+                bottom: -3px;
+            }
+        }
+
+        // Control Button
+        &.--ctrl {
+            padding:0 14px;
+            .btn__icon {
+                width: 17px;
+            }
+        }
+
+        // Button BackToTop
+        &.--backtotop {
+            right: clamp(calc(var(--gap) + 5px), calc((100vw - var(--max-width-container)) / 2 + var(--gap)), 9999px);
+            .btn__icon {
+                height: 12px;
+            }
+        }
+    }   
+}
+
+// --------------------------------- Blog Item -----------------------------------------------
+
+.blog-item {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-flow: dense;
+    align-items: center;
+    gap: var(--gap);
+
+    .textbox {
+        grid-column: 1/6;
+    }
+
+    &__thumb {
+        grid-column: 6/13;
+        display: flex;
+        pointer-events: none;
+
+        img {
+            @include mid-img;
+        }
+    }
+
+    &:nth-child(odd) {
+        .textbox {
+            padding-left: 74px;
+        }
+    }
+
+    &:nth-child(even) {
+        .blog-item__thumb {
+            grid-column: 1/8;
+        }
+
+        .textbox {
+            grid-column: 8/13;
+            padding-right: 74px;
+        }
+    }
+
+    // Responsive
+    @include sm {
+        grid-template-columns: repeat(2, 1fr);
+
+        &:nth-child(odd),
+        &:nth-child(even) {
+            .textbox,
+            .blog-item__thumb {
+                padding: initial;
+                grid-column: initial;
+            }
+        }
+        &:nth-child(even) {
+            .textbox {
+                order: 2;
+            }
+        }
+    }
+
+    @include xs {
+        --blog-item-gap: 22px;
+        grid-template-columns: 1fr;
+        gap: var(--blog-item-gap);
+
+        &:nth-child(odd),
+        &:nth-child(even) {
+            .blog-item__thumb {
+                grid-column: initial;
+                order: 1;
+            }
+
+            .textbox {
+                grid-column: initial;
+                order: 2;
+                padding: initial;
+            }
+        }
+    }
+}
+
+// Progress Bar Scroll
+.progressbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    width: 0%;
+    height: 4px;
+    background-color: var(--primary-color);
+    @include transition(var(--transition-duration));
+}
+
+.mouse-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 700;
+    @include size(50px, 50px, true);
+    background-color: var(--white-color);
+    will-change: transform;
+    @include visible(0);
+    @include transition(0.1s);
+    mix-blend-mode: difference;
+
+    &.--active {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,39 @@
+.footer {
+    height: var(--height-footer);
+
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__logo {
+        display: flex;
+        @include mid-abs;
+    }
+
+    &__copyright {
+        @include text(var(--white-color),
+            var(--font-regular),
+            var(--fs-body-small),
+            var(--lh-body-small),
+            var(--ls-body-small));
+        opacity: 0.5;
+    }
+
+    @include xs{
+        .container {
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        &__logo {
+            width: 135px;
+            position: initial;
+            @include transform(initial);
+        }
+    }
+}

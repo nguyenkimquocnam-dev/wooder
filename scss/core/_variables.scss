@@ -1,0 +1,262 @@
+:root {
+    // -------------------- Colors --------------------------------
+    --primary-color: #BEA67C;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    --gray-color: #464646;
+    --bgheader-color: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
+    --blue-light-color: #4285F4;
+    --blue-dark-color: #3C5A99;
+    --red-color: #F14336;
+
+    // -------------------- Page Settings --------------------------
+    --gap: 28px;
+    --max-width-page: 2560px;
+
+    // -------------------- Container-Fluid ------------------------
+    --max-width-container-fluid: 1920px;
+
+    // -------------------- Container ------------------------------
+    --max-width-container: calc(1196px + (var(--gap) * 2));
+
+    // -------------------- Section --------------------------------
+    --pd-section: 120px;
+
+    // -------------------- Header ---------------------------------
+    --height-header: 90px;
+    --height-line-header-menu: 2px;
+    --pd-link-menu-header: 12px;
+    
+    // Humburger Button
+    --width-humburger-btn: 24px;
+    --height-humburger-btn: 21px;
+
+    // -------------------- Slider ---------------------------------
+    --width-dot: 10px;
+    --height-dot: 10px;
+
+    // -------------------- Section --------------------------------
+    --height-footer: 100px;
+    --height-btn-backtotop: 35px;
+
+    // -------------------- Banner Section -------------------------
+    --pd-banner-section: 186px;
+
+    // -------------------- Typography -----------------------------
+    // Font Family
+    --font-bold: pb;
+    --font-regular: pr;
+
+    // Font Size Default
+    --fs-default: 62.5%;
+
+    // Heading 1
+    --fs-h1: 8.4rem;
+    --lh-h1: normal;
+    --ls-h1: 10.08px;
+
+    // Heading 2
+    --fs-h2: 4.6rem;
+    --lh-h2: 5.6rem;
+    --ls-h2: 4.6px;
+
+    // Heading 3
+    --fs-h3: 1.8rem;
+    --lh-h3: 2.4rem;
+    --ls-h3: 0.72px;
+
+    // Button Text 
+    --fs-btn: 1.5rem;
+    --lh-btn: normal;
+    --ls-btn: 1.5px;
+
+    // Body Text
+    --fs-body: 1.8rem;
+    --lh-body: 2.5rem;
+    --ls-body: 0.36px;
+
+    // Body Text Small
+    --fs-body-small: 1.4rem;
+    --lh-body-small: normal;
+    --ls-body-small: 0.56px;
+
+    // Paging Text
+    --fs-paging: 3.8rem;
+    --lh-paging: normal;
+    --ls-paging: 2.28px;
+
+    // Navigation Text
+    --fs-nav: 2.2rem;
+    --lh-nav: normal;
+    --ls-nav: 1.76px;
+
+    // Line
+    // Heading 2
+    --width-line-h2: 58px;
+    --height-line-h2: 5px;
+
+    // Heading 3
+    --width-line-h3: 35px;
+    --height-line-h3: 3px;
+
+
+
+    // ------------------------------------------ Button ------------------------------------------
+    --border-btn: 1px solid;
+    // Button Main
+    --height-btn-main: 44px;
+
+    // Button Control
+    --height-btn-control: 34px;
+
+    // Button Learn More
+    --height-btn-learnmore: 21px; 
+    --width-line-btn-learnmore: 30px;
+    --height-line-btn-learnmore: 2px;
+
+    // Button Control
+    --height-btn-ctrl: 34px;
+
+    // Button CTA
+    --height-btn-cta: 38px;
+    --height-btn-cta-large: 48px;
+
+    // Button Social
+    --height-btn-social: 48px;
+
+    // ------------------------------------------ Tabs --------------------------------------------
+    --height-tab: 38px;
+    --border-tab: 1px solid var(--primary-color);
+    
+    // ------------------------------------------ Timing Transition -------------------------------
+    --transition-duration: 0.4s;
+
+    // ------------------------------------------ Videos ------------------------------------------
+    // Video Item
+    --border-width-video: 12px;
+    --width-item-video: calc(200px + (var(--border-width-video) * 2));
+    --height-item-video: calc(200px + (var(--border-width-video) * 2));
+
+    // Line Video
+    --width-line-video: 29px;
+    --height-line-video: 2px;
+
+    // -------------------------------------- Carousel ----------------------------------------
+    --width-progress: 130px;
+    --height-progress: 5px;
+    --height-img: 450px;
+
+    // -------------------------------------- Custom Scrollbar ------------------------------------
+    --width-scrollbar: 10px;
+    --bg-track-scrollbar: var(--white-color);
+    --bg-thumb-scrollbar: var(--primary-color);
+    --border-radius-scrollbar: 50px;
+
+    // -------------------------------------- Loading ---------------------------------------------
+    --width-progress-loading: 160px;
+    --height-progress-loading: 4px;
+
+    // ------------------------------------------ Responsive --------------------------------------
+    @include md {
+        --max-width-container: 1140px;
+        --fs-default: 57.5%;
+    }
+
+    @include sm {
+        --max-width-container: 960px;
+        --pd-section: 90px;
+        --pd-banner-section: 120px;
+    }
+
+    @include xs {
+        --fs-default: 62.5%;
+        // Container
+        --gap: 10px;
+        --max-width-container: 720px;
+
+        // Header
+        --height-header: 64px;
+
+        // Section
+        --pd-section: 60px;
+        --pd-banner-section: 76px;
+
+        // Heading
+        // h1
+        --fs-h1: 5.6rem;
+        --ls-h1: 4.48px;
+
+        // h2
+        --fs-h2: 3.8rem;
+        --lh-h2: 4.2rem;
+        --ls-h2: 1.52px;
+        --width-line-h2: 46px;
+        --height-line-h2: 3px;
+
+        // h3
+        --fs-h3: 1.6rem;
+        --lh-h3: 2.2rem;
+        --ls-h3: 0.64px;
+
+        // button text
+        --fs-btn: 1.2rem;
+        --ls-btn: 1.2px;
+
+        // body text
+        --fs-body: 1.5rem;
+        --lh-body: 2rem;
+        --ls-body: 0.6px;
+
+        // body text small
+        --fs-body-small: 1.2rem;
+        --ls-body-small: 0.48px;
+
+        // Buttons
+        // Button Main
+        --height-btn-main: 34px;
+        
+        // Button Learn More
+        --width-line-btn-learnmore: 28px;
+
+        // Button Control
+        --height-btn-control: 27px;
+
+        // Button Back To Top
+        --height-btn-backtotop: 24px;
+
+        // Width, Height Paging Dots
+        --width-dot: 8px;
+        --height-dot: 8px;
+
+        // ------------------------------------ Videos Section -----------------------------
+        // Width, Height Line Title
+        --width-line-video: 30px;
+        --height-line-video: 3px;
+
+        // Height Button Play
+        --height-play-btn: 36px;
+
+        // ------------------------------------ News Section -------------------------------
+        // Tabs
+        --height-tab: 28px;
+
+        // ------------------------------------ Carousel Section ---------------------------
+        --width-progress: 70px;
+        --height-progress: 3px;
+        --height-img: 220px;
+
+        // ------------------------------------ Footer -------------------------------------
+        --height-footer: 92px;
+
+        // ------------------------------------ Custom Scrollbar ---------------------------
+        --width-scrollbar: 6px;
+        --border-radius-scrollbar: 15px;
+
+        // ------------------------------------ Loading ------------------------------------
+        --width-progress-loading: 129px;
+    }
+
+    @include xxs {
+        --max-width-container: 100%;
+    }
+}

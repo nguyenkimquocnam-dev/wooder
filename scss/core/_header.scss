@@ -1,0 +1,237 @@
+.header {
+    @include full-screen(true);
+    height: var(--height-header);
+    background: var(--bgheader-color);
+    z-index: 100;
+    @include transition(var(--transition-duration));
+
+    .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__logo {
+        display: flex;
+        @include transition(var(--transition-duration));
+
+        &.--hide {
+            @include visible(0);
+        }
+    }
+
+    &__menu {
+        display: flex;
+        @include mid-abs;
+
+        li {
+            a {
+                position: relative;
+                display: inline-block;
+                padding: 0px var(--pd-link-menu-header);
+                @include text(var(--white-color),
+                    var(--font-bold),
+                    var(--fs-btn),
+                    var(--lh-btn),
+                    var(--ls-btn),
+                    uppercase);
+                @include transition(var(--transition-duration));
+
+                &::after {
+                    content: "";
+                    display: block;
+                    background-color: var(--primary-color);
+                    @include size(100%, var(--height-line-header-menu));
+                    margin-top: 2px;
+                    @include transform(scaleX(0));
+                    @include transform-origin(right);
+                    @include transition(transform var(--transition-duration));
+                }
+
+                // Link Hover
+                &.--active, &:hover {
+                    color: var(--primary-color);
+
+                    &::after {
+                        @include transform(scaleX(1));
+                        @include transform-origin(left);
+                    }
+                }
+            }
+        }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        // Language Dropdown
+        &-language {
+            position: relative;
+            height: 100%;
+            padding-left: 20px;
+            cursor: pointer;
+            @include transition(var(--transition-duration));
+
+            &.--active {
+                .select {
+                    &__icon {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            &.--hide {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .select {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                gap: 2px;
+                cursor: pointer;
+
+                &__current {
+                    @include text(var(--white-color), var(--font-bold), var(--fs-btn), var(--lh-btn), var(--ls-btn), uppercase);
+                }
+
+                &__icon {
+                    height: 4px;
+                    @include transition(var(--transition-duration));
+                }
+            }
+
+            .option {
+                position: absolute;
+                right: 0;
+                top: var(--height-header);
+                padding: 10px 0;
+                background-color: var(--black-color);
+                @include animation(fade-in var(--transition-duration));
+
+                li {
+                    padding: 4px 20px;
+                    cursor: pointer;
+                    color: var(--white-color);
+                    text-align: center;
+                    @include text(var(--white-color), var(--font-bold), var(--fs-btn), var(--lh-btn), var(--ls-btn), uppercase);
+                    @include transition(var(--transition-duration));
+
+                    // Option Hover
+                    &:hover {
+                        color: var(--primary-color);
+                    }
+                }
+
+                // Option Animation
+                @include keyframes(fade-in) {
+                    from {
+                        opacity: 0;
+                    }
+
+                    to {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        // Humburger Button
+        &-humburger {
+            position: relative;
+            align-items: center;
+            margin-left: 26px;
+            cursor: pointer;
+            @include size(var(--width-humburger-btn), var(--height-humburger-btn));
+
+            &::before,
+            &::after,
+            .bar {
+                position: absolute;
+                left: 0;
+                @include line-style(100%, 2px, var(--white-color));
+                @include transition(var(--transition-duration));
+            }
+
+            &::before {
+                top: 0;
+            }
+
+            .bar {
+                @include mid-abs('top');
+            }
+
+            &::after {
+                bottom: 0;
+            }
+
+            // Close
+            &.--close {
+                .bar {
+                    opacity: 0;
+                }
+
+                &::before {
+                    transform: rotate(-45deg) translate(-9px, 6px);
+                }
+
+                &::after {
+                    @include transform(rotate(45deg) translate(-7px, -5px));
+                }
+            }
+
+        }
+
+        // Signup Button
+        .btn {
+            &.--cta {
+                margin-left: 22px;
+            }
+        }
+    }
+
+    // Responsive
+    // Tablet Large
+    @include sm {
+        // Show Humburger
+        &__right {
+            &-humburger {
+                display: flex;
+            }
+
+            .btn.--cta {
+                display: none;
+            }
+        }
+
+        // Hide Header Menu
+        &__menu {
+            display: none;
+        }
+    }
+
+    // Phone
+    @include xs {
+        // Logo
+        &__logo {
+            width: 135px;
+        }
+
+        // Right
+        // Dropdown
+        &__right {
+            &-language {
+                .select {
+                    &__icon {
+                        width: 6px;
+                        height: 3px;
+                    }
+                }
+            }
+        }
+    }
+}
